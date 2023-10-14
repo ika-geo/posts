@@ -1,0 +1,12 @@
+.register .wrapper {
+  padding: 60px 0;
+}
+.register .wrapper form {
+  width: 500px;
+  margin: 0 auto;
+}
+.register .wrapper form h1 {
+  text-align: center;
+}
+
+/*# sourceMappingURL=register.css.map */

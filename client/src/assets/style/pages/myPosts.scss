@@ -1,0 +1,35 @@
+.myPosts{
+  .myPosts_block{
+
+    position: relative;
+
+    .createPost{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .posts{
+
+      .postItem{
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 15px;
+
+        .postItem_title{
+          display: block;
+          font-weight: bold;
+          font-size: 1.7rem;
+          margin-bottom: 15px;
+        }
+
+      }
+
+      .textEditor{
+        max-height: 60vh;
+        overflow: scroll;
+      }
+    }
+  }
+}

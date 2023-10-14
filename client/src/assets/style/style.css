@@ -1,0 +1,313 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Light", sans-serif;
+  overflow-x: hidden;
+  background-color: #333;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+li {
+  margin-left: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: green;
+  transition-duration: 0.2s;
+}
+a:hover {
+  opacity: 0.7;
+  transition-duration: 0.2s;
+}
+
+*:hover {
+  transition-duration: 0.3s;
+}
+
+.wrapper {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 30px 10px;
+  background-color: white;
+}
+
+input {
+  display: block;
+  width: 100%;
+  height: 30px;
+  border-radius: 4px;
+  margin-bottom: 25px;
+  padding: 5px;
+  border: 1px solid grey;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 15px;
+  font-size: 1.2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.block {
+  position: relative;
+  padding: 40px 0;
+}
+@media screen and (max-width: 768px) {
+  .block {
+    padding: 40px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .block {
+    padding: 30px 0;
+  }
+}
+
+.title {
+  font-weight: 800;
+  font-size: 30px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 35px;
+    margin-bottom: 25px;
+  }
+}
+
+.subTitle {
+  font-weight: 800;
+  font-size: 20px;
+  color: black;
+}
+@media screen and (max-width: 768px) {
+  .subTitle {
+    font-size: 35px;
+    margin-bottom: 25px;
+  }
+}
+
+.text {
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+@media screen and (max-width: 768px) {
+  .text {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .text {
+    font-size: 15px;
+  }
+}
+
+.button {
+  padding: 7px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  width: fit-content;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition-duration: 0.3s;
+}
+.button:hover {
+  background-color: #676767 !important;
+}
+
+.fullBtn {
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  padding: 10px;
+  border-radius: 6px;
+}
+.fullBtn:hover {
+  background-color: #676767;
+}
+
+.clickButton {
+  margin-left: 10px;
+  display: inline;
+  cursor: pointer;
+  color: blue;
+  font-weight: 700;
+  transition-duration: 0.3s;
+}
+.clickButton:hover {
+  color: #7979ff;
+}
+
+.flex {
+  display: flex;
+}
+.flex.between {
+  justify-content: space-between;
+}
+
+.hideAfter6 {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 15px;
+}
+
+.close {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 35px;
+  font-weight: bolder;
+  cursor: pointer;
+  color: red;
+}
+
+.editBlock {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.editBlock .formBlock {
+  position: relative;
+  background: white;
+  width: 50%;
+  padding: 10px 20px;
+}
+
+.delete {
+  color: red;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-right: 5px;
+}
+
+.edit {
+  color: green;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.home .posts .postItem {
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+.home .posts .postItem .postItem_title {
+  margin-bottom: 10px;
+}
+
+.post .wrapper .post_block {
+  display: flex;
+  flex-direction: column;
+}
+.post .wrapper .post_block .postItem {
+  margin-bottom: 20px;
+}
+.post .wrapper .post_block .postItem .postInfo {
+  margin-bottom: 15px;
+}
+.post .wrapper .post_block .postItem img {
+  max-height: 300px;
+  float: left;
+  margin: 0 10px 5px 0;
+}
+.post .wrapper .post_comments .commentItem {
+  padding: 10px;
+  border: 1px solid grey;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.post .wrapper .post_comments .commentItem .comment_author {
+  margin-bottom: 7px;
+}
+.post .wrapper .post_comments .commentItem .comment_text {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.post .wrapper .post_comments .commentItem .comment_delete {
+  cursor: pointer;
+  color: red;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+.post .wrapper .post_comments .commentItem .comment_edit {
+  cursor: pointer;
+  color: green;
+  font-size: 1.5rem;
+}
+
+.myPosts .myPosts_block {
+  position: relative;
+}
+.myPosts .myPosts_block .createPost {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.myPosts .myPosts_block .posts .postItem {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+.myPosts .myPosts_block .posts .postItem .postItem_title {
+  display: block;
+  font-weight: bold;
+  font-size: 1.7rem;
+  margin-bottom: 15px;
+}
+.myPosts .myPosts_block .posts .textEditor {
+  max-height: 60vh;
+  overflow: scroll;
+}
+
+.myComments .comment_item {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+.myComments .comment_item .subtitle {
+  margin-bottom: 10px;
+}
+.myComments .comment_item a {
+  margin-bottom: 10px;
+  display: block;
+}
+
+/*# sourceMappingURL=style.css.map */

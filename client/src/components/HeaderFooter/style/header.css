@@ -1,0 +1,63 @@
+.header {
+  color: #b9b9b9;
+}
+.header li {
+  list-style: none;
+}
+.header a {
+  display: block;
+  text-decoration: none;
+  color: #b9b9b9;
+  transition-duration: 0.3s;
+}
+.header a:hover {
+  color: white;
+}
+.header .wrapper {
+  background-color: #333;
+}
+.header .wrapper .header_block {
+  align-items: center;
+}
+.header .wrapper .header_block .header_logo h1 {
+  margin-bottom: unset;
+  cursor: pointer;
+}
+.header .wrapper .header_block .header_menu a {
+  margin-left: 20px;
+  font-size: 20px;
+}
+.header .wrapper .header_block .login {
+  color: black;
+}
+.header .wrapper .header_block .login .loginBlock {
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.header .wrapper .header_block .login .loginBlock .loginInside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  width: 450px;
+}
+.header .wrapper .header_block .login .loginBlock .loginInside .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  color: red;
+  font-size: 30px;
+}
+.header .wrapper .header_block .login .loginBlock .loginInside .header_login .login_title {
+  text-align: center;
+}
+
+/*# sourceMappingURL=header.css.map */

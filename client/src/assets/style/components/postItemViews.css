@@ -1,0 +1,11 @@
+.postItem_views {
+  display: flex;
+  align-items: center;
+}
+.postItem_views svg {
+  color: green;
+  font-size: 1.5rem;
+  margin-right: 5px;
+}
+
+/*# sourceMappingURL=postItemViews.css.map */

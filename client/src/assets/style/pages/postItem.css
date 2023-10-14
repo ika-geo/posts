@@ -1,0 +1,42 @@
+.post .wrapper .post_block {
+  display: flex;
+  flex-direction: column;
+}
+.post .wrapper .post_block .postItem {
+  margin-bottom: 20px;
+}
+.post .wrapper .post_block .postItem .postInfo {
+  margin-bottom: 15px;
+}
+.post .wrapper .post_block .postItem img {
+  max-height: 300px;
+  float: left;
+  margin: 0 10px 5px 0;
+}
+.post .wrapper .post_comments .commentItem {
+  padding: 10px;
+  border: 1px solid grey;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.post .wrapper .post_comments .commentItem .comment_author {
+  margin-bottom: 7px;
+}
+.post .wrapper .post_comments .commentItem .comment_text {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.post .wrapper .post_comments .commentItem .comment_delete {
+  cursor: pointer;
+  color: red;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+.post .wrapper .post_comments .commentItem .comment_edit {
+  cursor: pointer;
+  color: green;
+  font-size: 1.5rem;
+}
+
+/*# sourceMappingURL=postItem.css.map */

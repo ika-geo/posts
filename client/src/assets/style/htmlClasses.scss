@@ -1,0 +1,144 @@
+@import "variables";
+
+.block{
+  position: relative;
+  padding: 40px 0;
+  @media screen and (max-width: 768px){
+    padding: 40px 0;
+  }
+  @media screen and (max-width: 450px){
+    padding: 30px 0;
+  }
+}
+
+.title{
+  font-weight: 800;
+  font-size: 30px;
+  margin-bottom: 60px;
+  text-align: center;
+  @media screen and (max-width: 768px){
+    font-size: 35px;
+    margin-bottom: 25px;
+  }
+}
+
+.subTitle{
+  font-weight: 800;
+  font-size: 20px;
+  color: black;
+  @media screen and (max-width: 768px){
+    font-size: 35px;
+    margin-bottom: 25px;
+  }
+}
+
+.text{
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 15px;
+  @media screen and (max-width: 768px){
+    font-size: 16px;
+  }
+  @media screen and (max-width: 450px){
+    font-size: 15px;
+  }
+}
+
+.button{
+  padding: 7px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  width: fit-content;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition-duration: .3s;
+  &:hover{
+    background-color: #676767!important;
+  }
+}
+
+.fullBtn{
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition-duration: .3s;
+  padding: 10px;
+  border-radius: 6px;
+  &:hover{
+    background-color: #676767;
+  }
+}
+
+.clickButton{
+  margin-left: 10px;
+  display: inline;
+  cursor: pointer;
+  color: blue;
+  font-weight: 700;
+  transition-duration: .3s;
+  &:hover{
+    color: #7979ff;
+  }
+}
+
+.flex{
+  display: flex;
+  &.between{
+    justify-content: space-between;
+  }
+}
+
+.hideAfter6{
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 15px;
+}
+
+.close{
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 35px;
+  font-weight: bolder;
+  cursor: pointer;
+  color: red;
+}
+
+
+.editBlock{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .formBlock{
+    position: relative;
+    background: white;
+    width: 50%;
+    padding: 10px 20px;
+  }
+}
+
+.delete{
+  color: red;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-right: 5px;
+}
+.edit{
+  color: green;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+

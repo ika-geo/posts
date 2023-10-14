@@ -1,0 +1,17 @@
+.myComments{
+  .comment_item{
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 15px ;
+    margin-bottom: 15px;
+
+    .subtitle{
+      margin-bottom: 10px;
+    }
+
+    a{
+      margin-bottom: 10px;
+      display: block;
+    }
+  }
+}
