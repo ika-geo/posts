@@ -1,7 +1,7 @@
 import axios from "axios";
 import cookie from 'js-cookie'
 const instance = axios.create({
-    baseURL: 'https://blog-zeta-cyan-60.vercel.app',
+    baseURL: 'https://posts-server-drab.vercel.app/',
     withCredentials:true
 });
 
