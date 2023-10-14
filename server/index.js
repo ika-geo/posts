@@ -12,7 +12,7 @@ app.use(express.json())
 dotenv.config()
 app.use(cors(
     {
-        origin: 'https://ika-geo.github.io',
+        origin: 'posts-client-navy.vercel.app',
         methods: 'GET,PUT,POST,DELETE',
         exposedHeaders: ['Authorization', 'Refreshtoken'],
         credentials: true
