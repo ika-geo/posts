@@ -36,7 +36,7 @@ app.use('/api/comments', CommentsRoute)
 
 app.get('/', function (req, res){
     res.json('server is running')
-    console.log('pass is '+process.env.MONGO_PASS)
+    console.log('pass is '+ MONGO_PASS)
 })
 
 
