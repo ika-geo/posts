@@ -43,8 +43,6 @@ app.get('/', function (req, res){
 const mongoDBUrl = `mongodb+srv://ikagelescorp:${process.env.MONGO_PASS}@mernblog.1v7q8do.mongodb.net/?retryWrites=true&w=majority`
 const port = process.env.PORT || 3002
 
-//routes
-app.get
 
 // Connect to MongoDB using Mongoose and start server
 async function start() {
