@@ -36,7 +36,7 @@ app.use('/api/comments', CommentsRoute)
 
 app.get('/', function (req, res){
     res.json('server is running')
-    console.log(`mongodb+srv://ikagelescorp:${process.env.MONGO_PASS}@mernblog.1v7q8do.mongodb.net/?retryWrites=true&w=majority`)
+    console.log(process.env.MONGO_PASS)
 })
 
 
