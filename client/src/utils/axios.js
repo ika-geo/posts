@@ -1,10 +1,9 @@
 import axios from "axios";
 import cookie from 'js-cookie'
 const instance = axios.create({
-    baseURL: 'posts-server-drab.vercel.app:5000',
+    baseURL: 'https://posts-server-drab.vercel.app:5000',
     withCredentials:true
 });
-
 
 instance.interceptors.request.use(config => {
     const refreshToken = cookie.get('Refreshtoken');
