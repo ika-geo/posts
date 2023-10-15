@@ -21,6 +21,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const postController = {
     getAllPosts: async function (req, res) {
         try {
+            console.log(1)
             const posts = await PostModel.find({})
 
             const getAllPostsResponse = []
