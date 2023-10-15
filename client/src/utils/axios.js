@@ -1,7 +1,7 @@
 import axios from "axios";
 import cookie from 'js-cookie'
 const instance = axios.create({
-    baseURL: 'https://posts-server-drab.vercel.app:5000/api',
+    baseURL: 'https://posts-server-drab.vercel.app/api',
     withCredentials:true
 });
 
