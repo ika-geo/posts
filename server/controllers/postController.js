@@ -1,7 +1,3 @@
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import fs from "fs";
-
 import PostModel from "../models/PostModel.js";
 import UserModel from "../models/UserModel.js";
 import CommentModel from "../models/CommentModel.js";
@@ -11,17 +7,12 @@ import {getPostsAndResponse} from "../features/getPostsAndResponse.js";
 
 import {postDto} from "../dtos/postDto.js";
 import {postByIdDto} from "../dtos/postByIdDto.js";
-
-
-
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
+import {deleteImg, uploadImg} from "../features/multer.js";
 
 
 const postController = {
     getAllPosts: async function (req, res) {
         try {
-            console.log(1)
             const posts = await PostModel.find({})
 
             const getAllPostsResponse = []
@@ -73,10 +64,8 @@ const postController = {
 
             let img
 
-            if (req.files){
-                let fileName = Date.now().toString() + req.files.img.name
-                await req.files.img.mv(path.join(__dirname, '..', 'uploads', fileName))
-                img = fileName
+            if (req.file){
+                img = await uploadImg(req.file)
             }
 
             const author = req.userId
@@ -142,8 +131,8 @@ const postController = {
             await UserModel.findByIdAndUpdate(req.userId, {$pull: {posts: postId}})
 
             //delete image
-            if (post.img&&fs.existsSync(path.join(__dirname, '..', 'uploads', post.img))){
-                fs.unlinkSync(path.join(__dirname, '..', 'uploads', post.img))
+            if (post.img?.key){
+                await deleteImg((post.img.key))
             }
 
             //delete post

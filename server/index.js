@@ -3,16 +3,18 @@ import dotenv from 'dotenv'
 import mongoose from "mongoose";
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import fileUpload from 'express-fileupload'
+import {uploadImgMulter} from './features/multer.js'
 
+
+const app = express()
 
 //middleware
-const app = express()
 app.use(express.json())
 dotenv.config()
 app.use(cors(
     {
         origin: 'https://posts-client-navy.vercel.app',
+        // origin: 'http://localhost:3000',
         methods: 'GET,PUT,POST,DELETE',
         exposedHeaders: ['Authorization', 'Refreshtoken'],
         credentials: true
@@ -20,18 +22,17 @@ app.use(cors(
 ));
 app.use(cookieParser())
 app.use('/uploads',express.static('uploads'))
-app.use(fileUpload())
+
 
 
 //routes
 import AuthRoute from "./routes/authRoute.js";
-
 app.use('/api/auth', AuthRoute)
+
 import PostRoute from "./routes/postsRoute.js";
+app.use('/api/posts', uploadImgMulter, PostRoute)
 
-app.use('/api/posts', PostRoute)
 import CommentsRoute from "./routes/commentsRoute.js";
-
 app.use('/api/comments', CommentsRoute)
 
 app.get('/', function (req, res){
