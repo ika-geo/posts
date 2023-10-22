@@ -56,7 +56,7 @@ const PostItem = () => {
                             <h2 className='subTitle'>Date: {post.date?.slice(0, 10)}</h2>
                         </div>
                         {post.img&&
-                            <img src={'http://localhost:5000/uploads/'+post.img} alt={post.image}/>
+                            <img src={post.img.src} alt={post.image}/>
                         }
                         <PostText
                             text={post.text}

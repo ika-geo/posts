@@ -59,11 +59,11 @@ const CreatePost = () => {
 
                     <div className="createPost_form">
                         <form>
-                            {/*<label htmlFor="img">image</label>*/}
-                            {/*<input*/}
-                            {/*    onChange={e=>handleImg(e)}*/}
-                            {/*    accept="image/*"*/}
-                            {/*    type="file"/>*/}
+                            <label htmlFor="img">image</label>
+                            <input
+                                onChange={e=>handleImg(e)}
+                                accept="image/*"
+                                type="file"/>
                             <label htmlFor="title">Title</label>
 
                             <input
