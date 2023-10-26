@@ -17,14 +17,14 @@ const Header = () => {
                             <Link to='/'>BLOG</Link>
                         </h1>
                     </div>
-                    <div className="header_menu">
+                    <nav className="header_menu">
                         <ul className="mainMenu flex">
                             <li><Link to='/'>Home</Link></li>
                             {User?.name&&<li><Link to='/myPosts'>My posts</Link></li>}
                             {User?.name&&<li><Link to='/myComments'>My comments</Link></li>}
 
                         </ul>
-                    </div>
+                    </nav>
                     <HeaderLoginRegister/>
                 </div>
             </div>

@@ -6,16 +6,19 @@
     list-style: none;
   }
 
-  a {
-    display: block;
-    text-decoration: none;
-    color: #b9b9b9;
-    transition-duration: .3s;
+  .header_logo, nav{
+    a {
+      display: block;
+      text-decoration: none;
+      color: #b9b9b9;
+      transition-duration: .3s;
 
-    &:hover {
-      color: white;
+      &:hover {
+        color: white;
+      }
     }
   }
+
 
 
 

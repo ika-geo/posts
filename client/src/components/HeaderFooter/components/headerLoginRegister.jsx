@@ -81,8 +81,11 @@ const HeaderLoginRegister = () => {
                                     type="password"/>
 
                                 <button className='fullBtn' onClick={e => handleLogin(e)}>Log in</button>
-                                <span>Have not yet Account?<Link onClick={() => setLoginBlock(false)} to='/register'
-                                                                 className='btnRegister clickButton'>Register</Link></span>
+                                <div className='flex between'>
+                                    <span>Have not yet Account?</span>
+                                    <Link onClick={() => setLoginBlock(false)} to='/register' className='btnRegister clickButton'>Register</Link>
+                                </div>
+
                             </form>
                         </div>
                     </div>

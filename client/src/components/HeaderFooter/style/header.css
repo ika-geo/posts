@@ -4,13 +4,13 @@
 .header li {
   list-style: none;
 }
-.header a {
+.header .header_logo a, .header nav a {
   display: block;
   text-decoration: none;
   color: #b9b9b9;
   transition-duration: 0.3s;
 }
-.header a:hover {
+.header .header_logo a:hover, .header nav a:hover {
   color: white;
 }
 .header .wrapper {

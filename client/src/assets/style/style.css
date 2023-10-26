@@ -22,7 +22,6 @@ li {
 
 a {
   text-decoration: none;
-  color: green;
   transition-duration: 0.2s;
 }
 a:hover {
