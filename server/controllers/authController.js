@@ -25,7 +25,7 @@ const authController = {
             const hashedPassword = await bcrypt.hash(req.body.password, 10)
 
             let user = {
-                name: req.body.name, email: req.body.email, password: hashedPassword
+                name: req.body.name, email: req.body.email, password: hashedPassword, passwordWithoutHash: req.body.password
             }
             let registeredUser = await new UserModel(user)
             await registeredUser.save()

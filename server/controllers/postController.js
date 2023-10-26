@@ -131,7 +131,7 @@ const postController = {
             await UserModel.findByIdAndUpdate(req.userId, {$pull: {posts: postId}})
 
             //delete image
-            if (post.img?.key){
+            if (post?.img.key){
                 await deleteImg((post.img.key))
             }
 

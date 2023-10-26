@@ -1,6 +1,8 @@
 import AWS from 'aws-sdk'
 import dotenv from 'dotenv'
 import multer from 'multer'
+import ImagesForDelete from "../models/ImageForDelete.js";
+
 
 dotenv.config()
 
@@ -19,9 +21,6 @@ const fileFilter = function (req, file, cb) {
 export const uploadImgMulter = multer({storage, fileFilter}).single('img')
 
 
-
-
-
 //upload image
 export const uploadImg = async function (file) {
     const s3 = new S3()
@@ -31,26 +30,16 @@ export const uploadImg = async function (file) {
         Body: file.buffer
     }
     const result = await s3.upload(params).promise()
+    console.log(result)
     return {
         src:result.Location,
         key:result.Key
     }
 }
 
-
-
 //delete img
-export const deleteImg = async (imgKey)=>{
-    const s3 = new S3();
-    const params = {
-        Bucket: process.env.AWS_BUCKET_NAME,
-        Key: imgKey
-    };
-    s3.deleteObject(params, (err) => {
-        if (err) {
-            console.error(err);
-        }
-    });
+export const deleteImg = async function (imgKey){
+    let imageForDelete = await new ImagesForDelete({image:imgKey})
+    await imageForDelete.save()
 }
-
 

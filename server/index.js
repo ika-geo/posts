@@ -13,8 +13,8 @@ app.use(express.json())
 dotenv.config()
 app.use(cors(
     {
-        origin: 'https://posts-client-navy.vercel.app',
-        // origin: 'http://localhost:3000',
+        // origin: 'https://posts-client-navy.vercel.app',
+        origin: 'http://localhost:3000',
         methods: 'GET,PUT,POST,DELETE',
         exposedHeaders: ['Authorization', 'Refreshtoken'],
         credentials: true
