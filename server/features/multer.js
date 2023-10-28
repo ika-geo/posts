@@ -6,8 +6,6 @@ import ImagesForDelete from "../models/ImageForDelete.js";
 
 dotenv.config()
 
-const {S3} = AWS
-
 //multer options
 const storage = multer.memoryStorage()
 const fileFilter = function (req, file, cb) {
@@ -21,25 +19,68 @@ const fileFilter = function (req, file, cb) {
 export const uploadImgMulter = multer({storage, fileFilter}).single('img')
 
 
+
+
+
+
+
+
+
+
 //upload image
 export const uploadImg = async function (file) {
-    const s3 = new S3()
-    const params = {
-        Bucket: process.env.AWS_BUCKET_NAME,
-        Key: `upload/${Date.now()}-${file.originalname}`,
-        Body: file.buffer
+    try{
+        const s3 = new AWS.S3({
+            accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+            region: process.env.AWS_REGION
+        });
+        const params = {
+            Bucket: process.env.AWS_BUCKET_NAME,
+            Key: `upload/${Date.now()}-${file.originalname}`,
+            Body: file.buffer
+        }
+        const result = await s3.upload(params).promise()
+        return {
+            src:result.Location,
+            key:result.Key
+        }
     }
-    const result = await s3.upload(params).promise()
-    console.log(result)
-    return {
-        src:result.Location,
-        key:result.Key
+    catch (e) {
+        console.log(e)
     }
 }
 
 //delete img
 export const deleteImg = async function (imgKey){
-    let imageForDelete = await new ImagesForDelete({image:imgKey})
-    await imageForDelete.save()
+    try{
+        let imageForDelete = await new ImagesForDelete({image:imgKey})
+        await imageForDelete.save()
+
+
+        // const s3 = new AWS.S3({
+        //     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        //     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        //     region: process.env.AWS_REGION
+        // });
+        //
+        // const params = {
+        //     Bucket: process.env.AWS_BUCKET_NAME,
+        //     Key: imgKey
+        // };
+        //
+        // const result = await s3.deleteObject(params, (error, data) => {
+        //     if (error) {
+        //         console.log(error)
+        //     }
+        //     else{
+        //         console.log("File has been deleted successfully");
+        //     }
+        // });
+        // console.log(result)
+    }
+    catch (e) {
+        console.log(e)
+    }
 }
 

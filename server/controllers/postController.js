@@ -22,7 +22,7 @@ const postController = {
                 const postItem = await postDto(posts[i], author)
                 getAllPostsResponse.push(postItem)
             }
-            res.json(getAllPostsResponse)
+            res.json(getAllPostsResponse.reverse())
         } catch (e) {
             console.log(e)
             res.status(500).json({message: 'can\'t get posts, please try again'})

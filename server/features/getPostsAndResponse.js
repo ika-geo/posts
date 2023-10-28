@@ -7,5 +7,5 @@ export const getPostsAndResponse = async function (res, author) {
         const postItem = await PostModel.findById(author.posts[i])
         responsePosts.push(await postDto(postItem, author))
     }
-    res.json(responsePosts)
+    res.json(responsePosts.reverse())
 }

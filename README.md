@@ -1,5 +1,4 @@
-# this is post/blog project, which is created by using MERN technology (minimal frontend styling, to see my landing 
-# skills, please check out my other works on: https://ika-geo.github.io/portfolio/)
+# this is post/blog project, which is created by using MERN technology (minimal frontend styling, to see my landing skills, please check out my other works on: https://portfolio-five-sandy-66.vercel.app/)
 
 # Libraries and technologies I have used in this project:
 
@@ -14,15 +13,18 @@
     8. react-toastify (pop-windows)
 
 ## Back-End:
-    1. bcrypt (hash password)
-    2. cookie-parser
-    3. cors
-    4. dotenv
-    5. express
-    6. express-fileupload
-    7. jsonwebtoken
-    8. mongoose
-    9. nodemon
+    1. Node.js
+    2. Express
+    3. MongoDB
+    4. mongoose
+    5. jsonwebtoken
+    6. nodemon
+    7. Multer
+    8. cookie-parser
+    9. cors
+    10. dotenv
+    11. bcrypt (hash password)
+
 
 
 
