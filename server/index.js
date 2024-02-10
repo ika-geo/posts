@@ -5,7 +5,6 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import {uploadImgMulter} from './features/multer.js'
 
-
 const app = express()
 
 //middleware
@@ -13,8 +12,8 @@ app.use(express.json())
 dotenv.config()
 app.use(cors(
     {
-        // origin: 'https://posts-client-navy.vercel.app',
-        origin: 'http://localhost:3000',
+        origin: 'https://posts-client-navy.vercel.app',
+        // origin: 'http://localhost:3000',
         methods: 'GET,PUT,POST,DELETE',
         exposedHeaders: ['Authorization', 'Refreshtoken'],
         credentials: true
@@ -22,8 +21,6 @@ app.use(cors(
 ));
 app.use(cookieParser())
 app.use('/uploads',express.static('uploads'))
-
-
 
 //routes
 import AuthRoute from "./routes/authRoute.js";
@@ -40,10 +37,8 @@ app.get('/', function (req, res){
     console.log('pass is '+ process.env.MONGO_PASS)
 })
 
-
 const mongoDBUrl = `mongodb+srv://ikagelescorp:${process.env.MONGO_PASS}@mernblog.1v7q8do.mongodb.net/?retryWrites=true&w=majority`
 const port = process.env.PORT || 3002
-
 
 // Connect to MongoDB using Mongoose and start server
 async function start() {
