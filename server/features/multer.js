@@ -54,30 +54,24 @@ export const uploadImg = async function (file) {
 //delete img
 export const deleteImg = async function (imgKey){
     try{
+        //save which img need to be deleted
         let imageForDelete = await new ImagesForDelete({image:imgKey})
         await imageForDelete.save()
 
+        const s3 = new AWS.S3({
+            accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+            region: process.env.AWS_REGION
+        });
 
-        // const s3 = new AWS.S3({
-        //     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        //     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-        //     region: process.env.AWS_REGION
-        // });
-        //
-        // const params = {
-        //     Bucket: process.env.AWS_BUCKET_NAME,
-        //     Key: imgKey
-        // };
-        //
-        // const result = await s3.deleteObject(params, (error, data) => {
-        //     if (error) {
-        //         console.log(error)
-        //     }
-        //     else{
-        //         console.log("File has been deleted successfully");
-        //     }
-        // });
-        // console.log(result)
+        const params = {
+            Bucket: process.env.AWS_BUCKET_NAME,
+            Key: imgKey
+        };
+
+        const result = await s3.deleteObject(params).promise();
+        console.log("File has been deleted successfully");
+        console.log(result);
     }
     catch (e) {
         console.log(e)

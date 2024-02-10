@@ -1,11 +1,12 @@
 import UserModel from "../models/UserModel.js";
+import validator from "validator"
 
 export const registrationIssues = async function (req, res){
 
     const email = req.body.email
-    const userExist = await UserModel.findOne({email})
-
     const name = req.body.name
+
+    const userExist = await UserModel.findOne({email})
     const nameExist = await UserModel.findOne({name})
 
     if (userExist){
@@ -28,4 +29,9 @@ export const registrationIssues = async function (req, res){
         res.status(400).json({message: 'Password is missing'})
         return true
     }
+    if (!validator.isEmail(email)) {
+        res.status(400).json({message: `${email} is not valid email`})
+        return true
+    }
+
 }

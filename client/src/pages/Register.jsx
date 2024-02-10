@@ -3,9 +3,11 @@ import '../assets/style/pages/register.css'
 import {registerUser} from "../store/features/userSlice";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
+import Loader from "../components/Loader";
 
 const Register = () => {
 
+    const [loader, setLoader] = useState(false)
 
     const [user, setUser] = useState({
         name: '',
@@ -31,6 +33,7 @@ const Register = () => {
     const dispatch = useDispatch()
     const handleRegister = async function (e) {
         e.preventDefault();
+        setLoader(true)
         if (user){
             const userData = {
                 name: user.name,
@@ -46,9 +49,15 @@ const Register = () => {
                 })
                 navigate('/myPosts')
             }
+            setLoader(false)
         }
     };
 
+    if (loader){
+        return(
+            <Loader/>
+        )
+    }
 
     return (
         <div className='register'>

@@ -3,8 +3,11 @@ import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {getMyPosts} from "../store/features/postSlice";
 import MyPostItem from "../components/comment/MyPostItem";
+import Loader from "../components/Loader";
 
 const MyPosts = () => {
+
+    const [loader, setLoader] = useState(false)
 
     useEffect(()=>{
         handleGetMyPosts()
@@ -15,10 +18,17 @@ const MyPosts = () => {
     const dispatch = useDispatch()
 
     const handleGetMyPosts = async function (){
+        setLoader(true)
         const posts = await dispatch(getMyPosts())
         setMyPosts(posts.payload)
+        setLoader(false)
     }
 
+    if (loader){
+        return(
+            <Loader/>
+        )
+    }
 
     return (
         <div className='myPosts block'>

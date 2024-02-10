@@ -2,8 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch} from "react-redux";
 import {getMyComments} from "../store/features/commentSlice";
 import MyComment from "../components/comment/MyComment";
+import Loader from "../components/Loader";
 
 const MyComments = () => {
+
+    const [loader, setLoader] = useState(false)
 
     useEffect(() => {
         handleGetMyComments()
@@ -14,10 +17,18 @@ const MyComments = () => {
     const dispatch = useDispatch()
 
     const handleGetMyComments = async function () {
+        setLoader(true)
         const response = await dispatch(getMyComments())
         if (response.payload?.status === 200) {
             setMyComments(response.payload.data)
         }
+        setLoader(false)
+    }
+
+    if (loader){
+        return(
+            <Loader/>
+        )
     }
 
     return (

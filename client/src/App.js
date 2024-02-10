@@ -10,19 +10,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer} from "react-toastify";
 
 import Register from "./pages/Register";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {getMe} from "./store/features/userSlice";
 import {useDispatch, useSelector} from "react-redux";
 import CreatePost from "./pages/CreatePost";
 import MyPosts from "./pages/MyPosts";
 import PostItem from "./pages/PostItem";
 import MyComments from "./pages/MyComments";
-
+import {FallingLines} from "react-loader-spinner";
 
 
 function App() {
-
-    console.log('Attempt N1')
 
     const dispatch = useDispatch()
 

@@ -3,22 +3,20 @@ import {createPost} from "../store/features/postSlice";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import TextEditor from "../components/TextEditor";
+import Loader from "../components/Loader";
 
 
 
 
 const CreatePost = () => {
 
-
-
+    const [loader, setLoader] = useState(false)
 
     const dispatch = useDispatch()
 
     const navigate = useNavigate()
 
-
     const [post, setPost] = useState({ title: "", text: "" , img:""})
-
 
     useEffect(()=>{
         console.log(post)
@@ -37,15 +35,24 @@ const CreatePost = () => {
 
     const handleSubmit = async function (e) {
         e.preventDefault()
+        setLoader(true)
         const data = new FormData()
         data.append('title', post.title)
         data.append('text', post.text)
         data.append('img', post.img)
         const response = await dispatch(createPost(data))
         if (response.payload?.status===200){
+
             setPost({ title: "", text: "" , img:''})
             navigate(`/posts/${response.payload.id}`)
         }
+        setLoader(false)
+    }
+
+    if (loader){
+        return(
+            <Loader/>
+        )
     }
 
     return (
@@ -79,12 +86,6 @@ const CreatePost = () => {
                                 id="text"
                                 placeholder='text'
                             />
-
-
-                            {/*<textarea*/}
-                            {/*    value={post.text}*/}
-                            {/*    onChange={e=>handleText(e)}*/}
-                            {/*    id="text" placeholder='text'></textarea>*/}
 
                             <input
                                 onClick={e=>handleSubmit(e)}

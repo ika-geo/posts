@@ -6,9 +6,12 @@ import {getCommentsByPostId} from "../store/features/commentSlice";
 import CreateComment from "../components/comment/CreateComment";
 import Comment from "../components/comment/Comment";
 import PostText from "../components/Text";
+import Loader from "../components/Loader";
 
 
 const PostItem = () => {
+
+    const [loader, setLoader] = useState(false)
 
     const user = useSelector(state => state.user)
     const dispatch = useDispatch()
@@ -32,16 +35,24 @@ const PostItem = () => {
     }
 
     async function handleGetComments() {
+        setLoader(true)
         const response = await dispatch(getCommentsByPostId(postId))
         console.log()
         if (response.payload?.status===200){
             setComments(response.payload.data)
         }
+        setLoader(false)
     }
 
 
     if (!post) {
         return <h1>Some Error</h1>
+    }
+
+    if (loader){
+        return(
+            <Loader/>
+        )
     }
 
     return (
